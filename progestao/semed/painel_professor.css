@@ -1,0 +1,276 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(43, 84, 25);
+    color: white;
+    overflow-y: auto;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar .nav-link {
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgb(40, 171, 108);
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+#sidebarToggle {
+font-size: 24px;
+cursor: pointer;
+background: none;
+border: none;
+padding: 10px;
+}
+
+#sidebarToggle span {
+transition: transform 0.3s ease;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    padding-top: 70px;
+}
+
+.main-content.collapsed {
+    margin-left: 60px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+    z-index: 1000;
+    transition: left 0.3s;
+    height: 60px;
+}
+
+.navbar.collapsed {
+    left: 60px;
+}
+
+.submenu {
+    margin-left: 20px;
+    display: none;
+}
+
+.submenu .nav-link {
+    padding: 8px 15px;
+}
+
+.nav-item.has-submenu > .nav-link {
+    position: relative;
+}
+
+.nav-item.has-submenu > .nav-link::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    transition: transform 0.3s;
+}
+
+.nav-item.has-submenu.open > .nav-link::after {
+    transform: rotate(180deg);
+}
+
+.sidebar.collapsed .submenu {
+    display: none !important;
+}
+
+.user-name {
+    margin-left: auto;
+    margin-right: 20px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-name a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-name a:hover {
+    color: #ff4444;
+}
+
+.calendar {
+    margin-top: 100px;
+    margin-left: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.calendar-table {
+    width: auto;
+    border-collapse: collapse;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.calendar-table {
+    width: 60%;
+    border-collapse: collapse;
+}
+
+.calendar-table th, .calendar-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.calendar-table td {
+    height: 50px;
+}
+
+.calendar-table td:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.highlight-day {
+    background-color: rgb(52, 151, 63);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.highlight-day-blue {
+    background-color: #add8e6;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 1px;
+    margin: 0 15px;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar .nav-link span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .navbar {
+        left: 60px;
+    }
+
+    .calendar {
+        margin-left: 60px;
+    }
+
+    .calendar-table {
+        width: 90%;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 50px;
+    }
+    /* Esconde o botão em telas menores que 768px (típico para dispositivos móveis) */
+@media (max-width: 768px) {
+#sidebarToggle {
+display: none;
+}
+}
+
+    .sidebar .nav-link i {
+        margin-right: 0;
+    }
+
+    .main-content {
+        margin-left: 50px;
+    }
+
+    .navbar {
+        left: 50px;
+    }
+
+    .calendar {
+        margin-left: 50px;
+    }
+
+    .calendar-table {
+        width: 100%;
+    }
+
+    .calendar-header button {
+        font-size: 20px;
+    }
+
+    .calendar-table th, .calendar-table td {
+        padding: 5px;
+    }
+
+    .user-name {
+        font-size: 14px;
+    }
+
+    
+}
